@@ -262,4 +262,3 @@ const PARTICIPANTES = [
     top4: "",
   },
 ];
-

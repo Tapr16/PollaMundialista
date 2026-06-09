@@ -18,7 +18,7 @@
     <!-- ===== NAVBAR ===== -->
     <nav>
       <div class="nav-inner">
-          <button class="nav-toggle" aria-label="Menu"><span></span></button>
+        <button class="nav-toggle" aria-label="Menu"><span></span></button>
         <a href="index.html" class="nav-logo">
           <span class="ball">⚽</span> POLLA MUNDIAL
           <span style="color: white; font-size: 1rem">26</span>
@@ -168,15 +168,15 @@
 
     <!-- SCRIPTS -->
     <script src="js/data.js"></script>
-      <script>
-        const toggleBtn = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (toggleBtn && navLinks) {
-          toggleBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-          });
-        }
-      </script>
+    <script>
+      const toggleBtn = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      if (toggleBtn && navLinks) {
+        toggleBtn.addEventListener("click", () => {
+          navLinks.classList.toggle("open");
+        });
+      }
+    </script>
     <script>
       // ===== STATS =====
       const totalParticipantes = PARTICIPANTES.length;
@@ -184,12 +184,12 @@
       const cuotaNum = parseFloat(
         INFO_POLLA.cuota.replace(/[^0-9.]/g, "").replace(".", ""),
       );
-      const bote = totalPagados * 50000;
+      const bote = totalPagados * 100000;
 
       document.getElementById("stat-total").textContent = totalParticipantes;
       document.getElementById("stat-pagados").textContent = totalPagados;
       document.getElementById("stat-bote").textContent =
-        "$" + (totalPagados * 50000).toLocaleString("es-CO");
+        "$" + (totalPagados * 100000).toLocaleString("es-CO");
 
       // ===== INFO =====
       document.getElementById("cuota-monto").textContent = INFO_POLLA.cuota;
