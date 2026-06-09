@@ -77,24 +77,13 @@ const PUNTOS = {
 // Premios
 const PREMIOS = [
   {
-    posicion: "🥇 1er Lugar",
+    posicion: "🥇 Ganador",
     descripcion: "El que más puntos acumule",
-    premio: "60% del total recaudado",
+    premio: "100% del bote acumulado",
     color: "#FFD700",
   },
-  {
-    posicion: "🥈 2do Lugar",
-    descripcion: "El segundo con más puntos",
-    premio: "30% del total recaudado",
-    color: "#C0C0C0",
-  },
-  {
-    posicion: "🥉 3er Lugar",
-    descripcion: "El tercer clasificado",
-    premio: "10% del total recaudado",
-    color: "#CD7F32",
-  },
 ];
+
 
 // Reglas del juego
 const REGLAS = [
