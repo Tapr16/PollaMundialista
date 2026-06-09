@@ -405,8 +405,8 @@ section {
 .premios-section { background: var(--dark); }
 
 .premios-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 24px;
   max-width: 900px;
   margin: 0 auto;
@@ -414,45 +414,47 @@ section {
 
 .premio-card {
   background: var(--dark-card);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 215, 0, 0.5);
   border-radius: var(--radius);
-  padding: 40px 28px;
+  padding: 56px 64px;
   text-align: center;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  box-shadow: 0 0 60px rgba(255, 215, 0, 0.12);
+  max-width: 420px;
+  width: 100%;
 }
 
 .premio-card.first {
-  transform: scale(1.05);
-  border-color: rgba(255, 215, 0, 0.5);
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 80px rgba(255, 215, 0, 0.18);
 }
 
-.premio-card:hover { transform: scale(1.07); }
+.premio-card:hover { transform: translateY(-6px); box-shadow: 0 0 100px rgba(255, 215, 0, 0.25); }
 
-.premio-card .medal-big { font-size: 4rem; margin-bottom: 16px; display: block; }
+.premio-card .medal-big { font-size: 5.5rem; margin-bottom: 20px; display: block; }
 .premio-card .lugar {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
 }
 
 .premio-card .desc {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 .premio-card .monto {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
-  letter-spacing: 1px;
-  padding: 12px 24px;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  padding: 16px 36px;
   border-radius: 50px;
-  background: rgba(255, 215, 0, 0.1);
-  border: 1px solid rgba(255, 215, 0, 0.3);
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.4);
   color: var(--gold);
 }
 
