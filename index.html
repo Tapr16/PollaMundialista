@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Polla Mundialista 2026 – Copa del Mundo Familiar</title>
+    <meta
+      name="description"
+      content="Adivina el Top 4 del Mundial 2026 y compite con tu familia por increíbles premios. Consulta participantes, pronósticos y reglas."
+    />
+    <link rel="stylesheet" href="css/index.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <nav>
+      <div class="nav-inner">
+          <button class="nav-toggle" aria-label="Menu"><span></span></button>
+        <a href="index.html" class="nav-logo">
+          <span class="ball">⚽</span> POLLA MUNDIAL
+          <span style="color: white; font-size: 1rem">26</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">🏠 Inicio</a></li>
+          <li><a href="pagos.html">💰 Pagos</a></li>
+          <li><a href="pronosticos.html">🔮 Pronósticos</a></li>
+          <li><a href="ganadores.html">🏆 Ganadores</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          ⚽ Copa del Mundo · USA · Canadá · México · 2026
+        </div>
+        <span class="hero-trophy">🏆</span>
+        <h1>
+          POLLA<br />
+          <span class="gold">MUNDIAL</span><br />
+          <span class="red">2026</span>
+        </h1>
+        <p class="hero-subtitle">
+          ¿Quién adivinará el <strong>Top 4</strong>?<br />
+          Elige tus equipos, paga tu cuota y llévate el premio.
+        </p>
+        <div class="hero-buttons">
+          <a href="pronosticos.html" class="btn-primary">🔮 Ver Pronósticos</a>
+          <a href="#reglas" class="btn-secondary">📋 Ver Reglas</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== STATS BAR ===== -->
+    <div class="stats-bar" id="stats-bar">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <div class="stat-number" id="stat-total">0</div>
+          <div class="stat-label">Participantes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="stat-pagados">0</div>
+          <div class="stat-label">Han Pagado</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="stat-bote">$0</div>
+          <div class="stat-label">Bote Acumulado</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Días Restantes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SISTEMA DE PUNTOS ===== -->
+    <section class="puntos-section" id="puntos">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">Cómo Ganar</span>
+          <h2>SISTEMA DE PUNTOS</h2>
+          <p>
+            Acumula puntos según cuántos equipos de tu pronóstico lleguen al Top
+            4 del Mundial.
+          </p>
+        </div>
+        <div class="puntos-grid" id="puntos-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===== PREMIOS ===== -->
+    <section class="premios-section" id="premios">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">Lo que está en juego</span>
+          <h2>PREMIOS</h2>
+          <p>
+            El bote total se divide entre los tres primeros lugares del ranking
+            final.
+          </p>
+        </div>
+        <div class="premios-grid" id="premios-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===== REGLAS ===== -->
+    <section class="reglas-section" id="reglas">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">Reglamento oficial</span>
+          <h2>REGLAS DEL JUEGO</h2>
+          <p>Todo lo que necesitas saber para participar correctamente.</p>
+        </div>
+        <div class="reglas-grid" id="reglas-grid"></div>
+
+        <!-- Banner cuota -->
+        <div class="cuota-banner">
+          <div class="cuota-banner-text">
+            <h3>💳 Cuota de Participación</h3>
+            <p id="cuota-texto">
+              Paga tu cuota antes del <span id="fecha-limite">---</span> para
+              que tu pronóstico sea válido.
+            </p>
+          </div>
+          <div class="cuota-amount" id="cuota-monto">---</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PARTICIPANTES PREVIEW ===== -->
+    <section class="participantes-section" id="participantes">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">Los competidores</span>
+          <h2>PARTICIPANTES</h2>
+          <p>
+            Estas son las personas que se han inscrito a la polla mundialista
+            familiar.
+          </p>
+        </div>
+        <div class="participantes-preview" id="participantes-preview"></div>
+        <div class="ver-todos-btn">
+          <a href="pronosticos.html" class="btn-primary"
+            >🔮 Ver todos los pronósticos</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-logo">⚽ POLLA MUNDIAL 2026</div>
+      <p>
+        Una competencia familiar para el Mundial de Fútbol · USA · Canadá ·
+        México
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pagos.html">Pagos</a></li>
+        <li><a href="pronosticos.html">Pronósticos</a></li>
+        <li><a href="ganadores.html">Ganadores</a></li>
+      </ul>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/data.js"></script>
+      <script>
+        const toggleBtn = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggleBtn && navLinks) {
+          toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+          });
+        }
+      </script>
+    <script>
+      // ===== STATS =====
+      const totalParticipantes = PARTICIPANTES.length;
+      const totalPagados = PARTICIPANTES.filter((p) => p.pagado).length;
+      const cuotaNum = parseFloat(
+        INFO_POLLA.cuota.replace(/[^0-9.]/g, "").replace(".", ""),
+      );
+      const bote = totalPagados * 50000;
+
+      document.getElementById("stat-total").textContent = totalParticipantes;
+      document.getElementById("stat-pagados").textContent = totalPagados;
+      document.getElementById("stat-bote").textContent =
+        "$" + (totalPagados * 50000).toLocaleString("es-CO");
+
+      // ===== INFO =====
+      document.getElementById("cuota-monto").textContent = INFO_POLLA.cuota;
+      document.getElementById("fecha-limite").textContent =
+        INFO_POLLA.fechaLimite;
+
+      // ===== PUNTOS GRID =====
+      const puntosData = [
+        { pos: "TOP 1", medal: "🥇", pts: PUNTOS.top1, color: "#FFD700" },
+        { pos: "TOP 2", medal: "🥈", pts: PUNTOS.top2, color: "#C0C0C0" },
+        { pos: "TOP 3", medal: "🥉", pts: PUNTOS.top3, color: "#CD7F32" },
+        { pos: "TOP 4", medal: "4️⃣", pts: PUNTOS.top4, color: "#8EC1DA" },
+      ];
+
+      const puntosGrid = document.getElementById("puntos-grid");
+      puntosData.forEach((p) => {
+        puntosGrid.innerHTML += `
+      <div class="punto-card" style="--card-color: ${p.color}">
+        <div class="position">${p.pos}</div>
+        <span class="medal">${p.medal}</span>
+        <div class="points">${p.pts}</div>
+        <div class="points-label">Puntos</div>
+      </div>`;
+      });
+
+      // ===== PREMIOS GRID =====
+      const premiosGrid = document.getElementById("premios-grid");
+      PREMIOS.forEach((pr, i) => {
+        const medals = ["🥇", "🥈", "🥉"];
+        premiosGrid.innerHTML += `
+      <div class="premio-card ${i === 0 ? "first" : ""}">
+        <span class="medal-big">${medals[i]}</span>
+        <div class="lugar">${pr.posicion}</div>
+        <div class="desc">${pr.descripcion}</div>
+        <div class="monto">${pr.premio}</div>
+      </div>`;
+      });
+
+      // ===== REGLAS GRID =====
+      const reglasGrid = document.getElementById("reglas-grid");
+      REGLAS.forEach((r) => {
+        reglasGrid.innerHTML += `
+      <div class="regla-card">
+        <div class="regla-icon">${r.icono}</div>
+        <div class="regla-text">
+          <h3>${r.titulo}</h3>
+          <p>${r.descripcion}</p>
+        </div>
+      </div>`;
+      });
+
+      // ===== PARTICIPANTES PREVIEW (solo 8) =====
+      const previewGrid = document.getElementById("participantes-preview");
+      PARTICIPANTES.slice(0, 8).forEach((p) => {
+        previewGrid.innerHTML += `
+      <div class="participante-mini">
+        <div class="avatar">${p.emoji}</div>
+        <div class="pname">${p.nombre}</div>
+        <span class="badge-pagado ${p.pagado ? "si" : "no"}">${p.pagado ? "✓ Pagado" : "✗ Pendiente"}</span>
+      </div>`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganadores – Polla Mundialista 2026</title>
+  <meta name="description" content="Próximamente: conoce quién ganó la Polla Mundialista 2026 una vez finalizado el torneo." />
+  <link rel="stylesheet" href="css/ganadores.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="ball">⚽</span> POLLA MUNDIAL <span style="color:white; font-size:1rem;">26</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Inicio</a></li>
+      <li><a href="pagos.html">💰 Pagos</a></li>
+      <li><a href="pronosticos.html">🔮 Pronósticos</a></li>
+      <li><a href="ganadores.html" class="active">🏆 Ganadores</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Estrellas decorativas -->
+<div class="stars" id="stars-container"></div>
+
+<!-- Círculos decorativos -->
+<div class="circle-deco c1"></div>
+<div class="circle-deco c2"></div>
+<div class="circle-deco c3"></div>
+
+<!-- ===== COMING SOON ===== -->
+<section class="coming-soon">
+  <div class="coming-content">
+
+    <div class="coming-badge">🏆 Resultados Finales</div>
+
+    <span class="trophy-big">🏆</span>
+
+    <h1>PRÓXIMAMENTE</h1>
+
+    <p>
+      Los ganadores serán anunciados aquí una vez que el<br/>
+      <strong>Mundial de Fútbol 2026</strong> haya finalizado.<br/>
+      ¡Que gane el mejor!
+    </p>
+
+    <!-- Countdown visual (decorativo) -->
+    <div class="countdown-container" id="countdown-container">
+      <!-- Generado con JS -->
+    </div>
+
+    <a href="index.html" class="btn-back">← Volver al inicio</a>
+
+  </div>
+</section>
+
+<script src="js/data.js"></script>
+<script>
+  // ===== ESTRELLAS ANIMADAS =====
+  const starsContainer = document.getElementById('stars-container');
+  for (let i = 0; i < 60; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.setProperty('--d', (2 + Math.random() * 5) + 's');
+    star.style.setProperty('--delay', (Math.random() * 5) + 's');
+    starsContainer.appendChild(star);
+  }
+
+  // ===== COUNTDOWN hasta julio 2026 (final del mundial) =====
+  const TARGET = new Date('2026-07-19T18:00:00'); // Fecha estimada de la final del Mundial 2026
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = TARGET - now;
+
+    if (diff <= 0) {
+      document.getElementById('countdown-container').innerHTML = `
+        <div style="color: var(--gold); font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px;">
+          🏆 ¡El Mundial ha terminado! 🏆
+        </div>`;
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('countdown-container').innerHTML = `
+      <div class="countdown-item">
+        <span class="countdown-num">${String(days).padStart(3, '0')}</span>
+        <div class="countdown-label">Días</div>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-num">${String(hours).padStart(2, '0')}</span>
+        <div class="countdown-label">Horas</div>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-num">${String(minutes).padStart(2, '0')}</span>
+        <div class="countdown-label">Minutos</div>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-num">${String(seconds).padStart(2, '0')}</span>
+        <div class="countdown-label">Segundos</div>
+      </div>`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>

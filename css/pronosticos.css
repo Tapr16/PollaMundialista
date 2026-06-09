@@ -1,0 +1,433 @@
+@import 'common.css';
+
+/* =============================================
+   CSS - PÁGINA DE PRONÓSTICOS (pronosticos.html)
+   Estilo: Mundial de Fútbol 2026
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --gold: #FFD700;
+  --gold-dark: #C8A200;
+  --red: #C0392B;
+  --green: #1A7A2E;
+  --dark: #0A0A0A;
+  --dark-2: #111111;
+  --dark-3: #1A1A1A;
+  --dark-4: #222222;
+  --dark-card: #161616;
+  --text-light: #F0F0F0;
+  --text-muted: #888888;
+  --border: rgba(255, 215, 0, 0.15);
+  --radius: 16px;
+  --radius-sm: 8px;
+  --color-top1: #FFD700;
+  --color-top2: #C0C0C0;
+  --color-top3: #CD7F32;
+  --color-top4: #8EC1DA;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(192, 57, 43, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* === NAVBAR === */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+.nav-logo span.ball { animation: spin 4s linear infinite; display: inline-block; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.nav-links { display: flex; gap: 8px; list-style: none; }
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--gold);
+  background: rgba(255, 215, 0, 0.1);
+  border-color: var(--border);
+}
+
+/* === PAGE HEADER === */
+.page-header {
+  position: relative;
+  z-index: 1;
+  padding: 120px 5% 60px;
+  background: linear-gradient(180deg, rgba(192, 57, 43, 0.07) 0%, transparent 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header-inner { max-width: 1200px; margin: 0 auto; }
+
+.page-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.page-breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.page-breadcrumb a:hover { color: var(--gold); }
+.page-breadcrumb span { color: var(--gold); }
+
+.page-header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 7vw, 5rem);
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.page-header h1 span { color: var(--gold); }
+.page-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; }
+
+/* === LEYENDA DE PUNTOS === */
+.leyenda-section {
+  position: relative;
+  z-index: 1;
+  background: var(--dark-2);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 5%;
+}
+
+.leyenda-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.leyenda-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-right: 8px;
+}
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dark-card);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+}
+
+.leyenda-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+.leyenda-item .pts {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* === BÚSQUEDA === */
+.busqueda-section {
+  position: relative;
+  z-index: 1;
+  padding: 30px 5% 0;
+}
+
+.busqueda-inner { max-width: 1200px; margin: 0 auto; }
+
+.search-box {
+  position: relative;
+  max-width: 400px;
+}
+
+.search-box input {
+  width: 100%;
+  background: var(--dark-card);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  color: var(--text-light);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  padding: 12px 20px 12px 44px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.search-box input::placeholder { color: var(--text-muted); }
+.search-box input:focus { border-color: rgba(255, 215, 0, 0.5); }
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+/* === GRID DE PRONÓSTICOS === */
+.pronosticos-section {
+  position: relative;
+  z-index: 1;
+  padding: 30px 5% 80px;
+}
+
+.pronosticos-inner { max-width: 1200px; margin: 0 auto; }
+
+.pronosticos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Tarjeta de pronóstico */
+.prono-card {
+  background: var(--dark-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.prono-card:hover {
+  border-color: rgba(255, 215, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* Cabecera de la tarjeta */
+.prono-card-header {
+  padding: 20px 20px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.08);
+  background: rgba(255, 215, 0, 0.02);
+}
+
+.prono-avatar {
+  font-size: 2.4rem;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 215, 0, 0.08);
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.prono-name-block { flex: 1; }
+.prono-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.prono-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.prono-status-badge.pagado {
+  background: rgba(46, 204, 113, 0.12);
+  color: #2ECC71;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.prono-status-badge.pendiente {
+  background: rgba(231, 76, 60, 0.12);
+  color: #E74C3C;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.prono-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: rgba(255,215,0,0.15);
+  letter-spacing: 2px;
+}
+
+/* Picks (equipos escogidos) */
+.prono-picks {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pick-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.2s;
+}
+
+.pick-row:hover { background: var(--dark-4); }
+
+.pick-medal {
+  font-size: 1.2rem;
+  width: 28px;
+  text-align: center;
+}
+
+.pick-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 44px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.pick-label.top1 { background: rgba(255,215,0,0.12); color: var(--color-top1); }
+.pick-label.top2 { background: rgba(192,192,192,0.12); color: var(--color-top2); }
+.pick-label.top3 { background: rgba(205,127,50,0.12); color: var(--color-top3); }
+.pick-label.top4 { background: rgba(142,193,218,0.12); color: var(--color-top4); }
+
+.pick-pts {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.pick-pts.top1 { color: var(--color-top1); }
+.pick-pts.top2 { color: var(--color-top2); }
+.pick-pts.top3 { color: var(--color-top3); }
+.pick-pts.top4 { color: var(--color-top4); }
+
+.pick-team {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-light);
+  flex: 1;
+}
+
+.pick-flag {
+  font-size: 1.3rem;
+}
+
+/* === MENSAJE VACÍO === */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+}
+
+.empty-state .empty-icon { font-size: 3rem; margin-bottom: 16px; }
+.empty-state h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--text-light); }
+
+/* === FOOTER === */
+footer {
+  background: var(--dark-2);
+  border-top: 1px solid var(--border);
+  padding: 40px 5%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+footer .footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+footer p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; }
+.footer-links { display: flex; gap: 24px; justify-content: center; list-style: none; }
+.footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+.footer-links a:hover { color: var(--gold); }
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .pronosticos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .pronosticos-grid { grid-template-columns: 1fr; }
+}

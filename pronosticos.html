@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pronósticos – Polla Mundialista 2026</title>
+    <meta
+      name="description"
+      content="Revisa los equipos que cada participante ha escogido para el Top 4 del Mundial 2026."
+    />
+    <link rel="stylesheet" href="css/pronosticos.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <nav>
+      <div class="nav-inner">
+        <button class="nav-toggle" aria-label="Menu"><span></span></button
+        <a href="index.html" class="nav-logo">
+          <span class="ball">⚽</span> POLLA MUNDIAL
+          <span style="color: white; font-size: 1rem">26</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="pagos.html">💰 Pagos</a></li>
+          <li><a href="pronosticos.html" class="active">🔮 Pronósticos</a></li>
+          <li><a href="ganadores.html">🏆 Ganadores</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="page-header">
+      <div class="page-header-inner">
+        <div class="page-breadcrumb">
+          <a href="index.html">Inicio</a>
+          <span>›</span>
+          <span>Pronósticos</span>
+        </div>
+        <h1>🔮 <span>PRONÓSTICOS</span></h1>
+        <p>
+          Consulta los equipos que cada participante ha escogido para el Top 4.
+          ¿Quién adivinó mejor?
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== LEYENDA DE PUNTOS ===== -->
+    <div class="leyenda-section">
+      <div class="leyenda-inner">
+        <span class="leyenda-title">Sistema de puntos:</span>
+        <div class="leyenda-item">
+          <div class="leyenda-dot" style="background: #ffd700"></div>
+          <span>🥇 TOP 1</span>
+          <span class="pts" style="color: #ffd700">10 pts</span>
+        </div>
+        <div class="leyenda-item">
+          <div class="leyenda-dot" style="background: #c0c0c0"></div>
+          <span>🥈 TOP 2</span>
+          <span class="pts" style="color: #c0c0c0">6 pts</span>
+        </div>
+        <div class="leyenda-item">
+          <div class="leyenda-dot" style="background: #cd7f32"></div>
+          <span>🥉 TOP 3</span>
+          <span class="pts" style="color: #cd7f32">4 pts</span>
+        </div>
+        <div class="leyenda-item">
+          <div class="leyenda-dot" style="background: #8ec1da"></div>
+          <span>4️⃣ TOP 4</span>
+          <span class="pts" style="color: #8ec1da">2 pts</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== BUSCADOR ===== -->
+    <div class="busqueda-section">
+      <div class="busqueda-inner">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar participante..."
+            oninput="buscar()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== GRID PRONÓSTICOS ===== -->
+    <section class="pronosticos-section">
+      <div class="pronosticos-inner">
+        <div class="pronosticos-grid" id="pronosticos-grid">
+          <!-- Generado con JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-logo">⚽ POLLA MUNDIAL 2026</div>
+      <p>
+        Una competencia familiar para el Mundial de Fútbol · USA · Canadá ·
+        México
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pagos.html">Pagos</a></li>
+        <li><a href="pronosticos.html">Pronósticos</a></li>
+        <li><a href="ganadores.html">Ganadores</a></li>
+      </ul>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script>
+      // Flags por país (emojis)
+      const FLAGS = {
+      Argentina: "<img src='escudos mundial/argentina.png' class='pick-flag-img' alt='Argentina'>",
+      Brasil: "<img src='escudos mundial/brasil.png' class='pick-flag-img' alt='Brasil'>",
+      Francia: "<img src='escudos mundial/francia.png' class='pick-flag-img' alt='Francia'>",
+      Alemania: "<img src='escudos mundial/alemania.png' class='pick-flag-img' alt='Alemania'>",
+      España: "<img src='escudos mundial/espana.png' class='pick-flag-img' alt='España'>",
+      Portugal: "<img src='escudos mundial/portugal.png' class='pick-flag-img' alt='Portugal'>",
+      Inglaterra: "<img src='escudos mundial/inglaterra.png' class='pick-flag-img' alt='Inglaterra'>",
+      Italia: "<img src='escudos mundial/italia.png' class='pick-flag-img' alt='Italia'>",
+      México: "<img src='escudos mundial/mexico.png' class='pick-flag-img' alt='México'>",
+      Colombia: "<img src='escudos mundial/colombia.png' class='pick-flag-img' alt='Colombia'>",
+      Uruguay: "<img src='escudos mundial/uruguay.png' class='pick-flag-img' alt='Uruguay'>",
+      "Países Bajos": "<img src='escudos mundial/paisesbajos.png' class='pick-flag-img' alt='Países Bajos'>",
+      Bélgica: "<img src='escudos mundial/belgica.png' class='pick-flag-img' alt='Bélgica'>",
+      Croacia: "<img src='escudos mundial/croacia.png' class='pick-flag-img' alt='Croacia'>",
+      Marruecos: "<img src='escudos mundial/marruecos.png' class='pick-flag-img' alt='Marruecos'>",
+      Senegal: "<img src='escudos mundial/senegal.png' class='pick-flag-img' alt='Senegal'>",
+      Japón: "<img src='escudos mundial/japon.png' class='pick-flag-img' alt='Japón'>",
+      "Corea del Sur": "<img src='escudos mundial/coreadelsur.png' class='pick-flag-img' alt='Corea del Sur'>",
+      "Estados Unidos": "<img src='escudos mundial/usa.png' class='pick-flag-img' alt='Estados Unidos'>",
+      Canadá: "<img src='escudos mundial/canada.png' class='pick-flag-img' alt='Canadá'>",
+      Ecuador: "<img src='escudos mundial/ecuador.png' class='pick-flag-img' alt='Ecuador'>",
+      Perú: "<img src='escudos mundial/peru.png' class='pick-flag-img' alt='Perú'>",
+      Chile: "<img src='escudos mundial/chile.png' class='pick-flag-img' alt='Chile'>",
+      Suiza: "<img src='escudos mundial/suiza.png' class='pick-flag-img' alt='Suiza'>",
+      Dinamarca: "<img src='escudos mundial/dinamarca.png' class='pick-flag-img' alt='Dinamarca'>",
+      Polonia: "<img src='escudos mundial/polonia.png' class='pick-flag-img' alt='Polonia'>",
+      Serbia: "<img src='escudos mundial/serbia.png' class='pick-flag-img' alt='Serbia'>",
+      Turquía: "<img src='escudos mundial/turquia.png' class='pick-flag-img' alt='Turquía'>",
+      Austria: "<img src='escudos mundial/austria.png' class='pick-flag-img' alt='Austria'>",
+      Hungría: "<img src='escudos mundial/hungria.png' class='pick-flag-img' alt='Hungría'>",
+    };
+
+      const picks = [
+        { pos: "top1", label: "TOP 1", medal: "🥇", pts: PUNTOS.top1 },
+        { pos: "top2", label: "TOP 2", medal: "🥈", pts: PUNTOS.top2 },
+        { pos: "top3", label: "TOP 3", medal: "🥉", pts: PUNTOS.top3 },
+        { pos: "top4", label: "TOP 4", medal: "4️⃣", pts: PUNTOS.top4 },
+      ];
+
+      function renderPronosticos(lista) {
+        const grid = document.getElementById("pronosticos-grid");
+        grid.innerHTML = "";
+
+        if (lista.length === 0) {
+          grid.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">🔍</div>
+          <h3>Sin resultados</h3>
+          <p>No se encontró ningún participante con ese nombre.</p>
+        </div>`;
+          return;
+        }
+
+        lista.forEach((p, i) => {
+          const filas = picks
+            .map(
+              (pk) => `
+        <div class="pick-row">
+          <span class="pick-medal">${pk.medal}</span>
+          <span class="pick-label ${pk.pos}">${pk.label}</span>
+          <span class="pick-team">${p[pk.pos]}</span>
+          <span class="pick-flag">${FLAGS[p[pk.pos]] || "🏴"}</span>
+        </div>`,
+            )
+            .join("");
+
+          grid.innerHTML += `
+        <div class="prono-card" style="animation-delay: ${i * 0.06}s">
+          <div class="prono-card-header">
+            <div class="prono-avatar">${p.emoji}</div>
+            <div class="prono-name-block">
+              <div class="prono-name">${p.nombre}</div>
+              <span class="prono-status-badge ${p.pagado ? "pagado" : "pendiente"}">
+                ${p.pagado ? "✅ Pagado" : "⏳ Pendiente"}
+              </span>
+            </div>
+            <div class="prono-num">#${(PARTICIPANTES.indexOf(p) + 1).toString().padStart(2, "0")}</div>
+          </div>
+          <div class="prono-picks">${filas}</div>
+        </div>`;
+        });
+      }
+
+      function buscar() {
+        const q = document.getElementById("search-input").value.toLowerCase();
+        const filtrados = PARTICIPANTES.filter((p) =>
+          p.nombre.toLowerCase().includes(q),
+        );
+        renderPronosticos(filtrados);
+      }
+
+      renderPronosticos(PARTICIPANTES);
+    </script>
+  </body>
+</html>

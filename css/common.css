@@ -1,0 +1,126 @@
+/* =============================================
+   COMMON STYLES - shared across all pages
+   Includes variables, reset, typography, and utility classes
+   ============================================= */
+
+/* ==== VARIABLES ==== */
+:root {
+  --gold: #FFD700;
+  --gold-dark: #C8A200;
+  --gold-light: #FFF0A0;
+  --red: #C0392B;
+  --red-dark: #922B21;
+  --green: #1A7A2E;
+  --green-dark: #0F5020;
+  --green-bright: #2ECC71;
+  --dark: #0A0A0A;
+  --dark-2: #111111;
+  --dark-3: #1A1A1A;
+  --dark-4: #222222;
+  --dark-card: #161616;
+  --text-light: #F0F0F0;
+  --text-muted: #888888;
+  --border: rgba(255, 215, 0, 0.15);
+  --shadow-gold: 0 0 30px rgba(255, 215, 0, 0.1);
+  --radius: 16px;
+  --radius-sm: 8px;
+}
+
+/* ==== RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* base for rem */
+}
+.pick-flag-img {
+  width: 1.5rem;
+  height: auto;
+  vertical-align: middle;
+}
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+/* ==== TYPOGRAPHY ==== */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ==== UTILS ==== */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* ==== NAVIGATION HAMBURGER ==== */
+.nav-toggle {
+  display: none; /* hidden on desktop */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  display: block;
+  background: var(--text-light);
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+.nav-toggle span::before {
+  content: '';
+  top: -8px;
+}
+.nav-toggle span::after {
+  content: '';
+  top: 8px;
+}
+/* when menu is open */
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px; /* height of nav */
+  left: 0;
+  right: 0;
+  background: rgba(10,10,10,0.96);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.nav-links.open a {
+  padding: 0.75rem 1.5rem;
+}
+
+/* Show toggle on small screens */
+@media (max-width: 600px) {
+  .nav-toggle {
+    display: block;
+  }
+  .nav-links {
+    display: none; /* hidden until toggled */
+  }
+}
+
+/* ==== FOOTER RESPONSIVE ==== */
+@media (max-width: 600px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
