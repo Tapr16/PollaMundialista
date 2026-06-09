@@ -1,138 +1,192 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pagos – Polla Mundialista 2026</title>
-  <meta name="description" content="Consulta quién ya pagó su cuota de participación en la Polla Mundialista 2026." />
-  <link rel="stylesheet" href="css/pagos.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagos – Polla Mundialista 2026</title>
+    <meta
+      name="description"
+      content="Consulta quién ya pagó su cuota de participación en la Polla Mundialista 2026."
+    />
+    <link rel="stylesheet" href="css/pagos.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <span class="ball">⚽</span> POLLA MUNDIAL
+          <span style="color: white; font-size: 1rem">26</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="pagos.html" class="active">💰 Pagos</a></li>
+          <li><a href="pronosticos.html">🔮 Pronósticos</a></li>
+          <li><a href="ganadores.html">🏆 Ganador</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Menu"><span></span></button>
+      </div>
+    </nav>
 
-<!-- ===== NAVBAR ===== -->
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <span class="ball">⚽</span> POLLA MUNDIAL <span style="color:white; font-size:1rem;">26</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">🏠 Inicio</a></li>
-      <li><a href="pagos.html" class="active">💰 Pagos</a></li>
-      <li><a href="pronosticos.html">🔮 Pronósticos</a></li>
-      <li><a href="ganadores.html">🏆 Ganador</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Menu"><span></span></button>
-  </div>
-</nav>
-
-<!-- ===== PAGE HEADER ===== -->
-<div class="page-header">
-  <div class="page-header-inner">
-    <div class="page-breadcrumb">
-      <a href="index.html">Inicio</a>
-      <span>›</span>
-      <span>Pagos</span>
-    </div>
-    <h1>💰 ESTADO DE <span>PAGOS</span></h1>
-    <p>Revisa quién ya ha cancelado su cuota de participación. Recuerda que el pronóstico solo es válido una vez confirmado el pago.</p>
-  </div>
-</div>
-
-<!-- ===== RESUMEN CARDS ===== -->
-<div class="resumen-section">
-  <div class="resumen-inner" id="resumen-inner">
-    <!-- Generado con JS -->
-  </div>
-</div>
-
-<!-- ===== TABLA DE PAGOS ===== -->
-<section class="tabla-section">
-  <div class="tabla-inner">
-
-    <!-- Alerta pendientes -->
-    <div class="pendientes-alert" id="pendientes-alert" style="display:none;">
-      <div class="alert-icon">⚠️</div>
-      <div class="alert-text">
-        <h4 id="alert-title">Participantes con pago pendiente</h4>
-        <p id="alert-desc">Algunos participantes aún no han pagado su cuota. Su pronóstico no será válido hasta confirmar el pago.</p>
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="page-header">
+      <div class="page-header-inner">
+        <div class="page-breadcrumb">
+          <a href="index.html">Inicio</a>
+          <span>›</span>
+          <span>Pagos</span>
+        </div>
+        <h1>💰 ESTADO DE <span>PAGOS</span></h1>
+        <p>
+          Revisa quién ya ha cancelado su cuota de participación. Recuerda que
+          el pronóstico solo es válido una vez confirmado el pago.
+        </p>
       </div>
     </div>
 
-    <div class="tabla-header">
-      <h2>TODOS LOS PARTICIPANTES</h2>
-      <div class="filtros">
-        <button class="filtro-btn active" id="filtro-todos" onclick="filtrar('todos')">Todos</button>
-        <button class="filtro-btn" id="filtro-pagados" onclick="filtrar('pagados')">✅ Pagados</button>
-        <button class="filtro-btn" id="filtro-pendientes" onclick="filtrar('pendientes')">⏳ Pendientes</button>
+    <!-- ===== RESUMEN CARDS ===== -->
+    <div class="resumen-section">
+      <div class="resumen-inner" id="resumen-inner">
+        <!-- Generado con JS -->
       </div>
     </div>
 
-    <div class="pagos-list" id="pagos-list">
-      <!-- Generado con JS -->
-    </div>
+    <!-- ===== TABLA DE PAGOS ===== -->
+    <section class="tabla-section">
+      <div class="tabla-inner">
+        <!-- Alerta pendientes -->
+        <div
+          class="pendientes-alert"
+          id="pendientes-alert"
+          style="display: none"
+        >
+          <div class="alert-icon">⚠️</div>
+          <div class="alert-text">
+            <h4 id="alert-title">Participantes con pago pendiente</h4>
+            <p id="alert-desc">
+              Algunos participantes aún no han pagado su cuota. Su pronóstico no
+              será válido hasta confirmar el pago.
+            </p>
+          </div>
+        </div>
 
-  </div>
-</section>
+        <div class="tabla-header">
+          <h2>TODOS LOS PARTICIPANTES</h2>
+          <div class="filtros">
+            <button
+              class="filtro-btn active"
+              id="filtro-todos"
+              onclick="filtrar('todos')"
+            >
+              Todos
+            </button>
+            <button
+              class="filtro-btn"
+              id="filtro-pagados"
+              onclick="filtrar('pagados')"
+            >
+              ✅ Pagados
+            </button>
+            <button
+              class="filtro-btn"
+              id="filtro-pendientes"
+              onclick="filtrar('pendientes')"
+            >
+              ⏳ Pendientes
+            </button>
+          </div>
+        </div>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="footer-logo">⚽ POLLA MUNDIAL 2026</div>
-  <p>Una competencia familiar para el Mundial de Fútbol · USA · Canadá · México</p>
-  <ul class="footer-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="pagos.html">Pagos</a></li>
-    <li><a href="pronosticos.html">Pronósticos</a></li>
-    <li><a href="ganadores.html">Ganador</a></li>
-  </ul>
-</footer>
+        <div class="pagos-list" id="pagos-list">
+          <!-- Generado con JS -->
+        </div>
+      </div>
+    </section>
 
-<script src="js/data.js"></script>
-      <script>
-        const toggleBtn = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (toggleBtn && navLinks) {
-          toggleBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-          });
-        }
-      </script>
-<script>
-  // ===== STATS RESUMEN =====
-  const total = PARTICIPANTES.length;
-  const pagados = PARTICIPANTES.filter(p => p.pagado).length;
-  const pendientes = total - pagados;
-  const boteTotal = pagados * 50000;
-  const pct = Math.round((pagados / total) * 100);
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-logo">⚽ POLLA MUNDIAL 2026</div>
+      <p>
+        Una competencia familiar para el Mundial de Fútbol · USA · Canadá ·
+        México
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pagos.html">Pagos</a></li>
+        <li><a href="pronosticos.html">Pronósticos</a></li>
+        <li><a href="ganadores.html">Ganador</a></li>
+      </ul>
+    </footer>
 
-  // Alerta pendientes
-  if (pendientes > 0) {
-    const alert = document.getElementById('pendientes-alert');
-    alert.style.display = 'flex';
-    document.getElementById('alert-title').textContent = `${pendientes} participante${pendientes !== 1 ? 's' : ''} con pago pendiente`;
-    document.getElementById('alert-desc').textContent = `${pendientes === 1 ? 'Este participante' : 'Estos participantes'} aún no ha${pendientes !== 1 ? 'n' : ''} pagado su cuota. Su pronóstico no será válido hasta confirmar el pago.`;
-  }
+    <script src="js/data.js"></script>
+    <script>
+      const toggleBtn = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      if (toggleBtn && navLinks) {
+        toggleBtn.addEventListener("click", () => {
+          navLinks.classList.toggle("open");
+        });
+      }
+    </script>
+    <script>
+      // ===== STATS RESUMEN =====
+      const total = PARTICIPANTES.length;
+      const pagados = PARTICIPANTES.filter((p) => p.pagado).length;
+      const pendientes = total - pagados;
+      const boteTotal = pagados * 100000;
+      const pct = Math.round((pagados / total) * 100);
 
-  // Resumen cards
-  const resumen = [
-    { icon: '👥', value: total, label: 'Total participantes', color: '#8EC1DA' },
-    { icon: '✅', value: pagados, label: 'Han pagado', color: '#2ECC71' },
-    { icon: '⏳', value: pendientes, label: 'Pendientes', color: '#E74C3C' },
-    { icon: '💵', value: '$' + boteTotal.toLocaleString('es-CO'), label: 'Bote acumulado', color: '#FFD700' },
-  ];
+      // Alerta pendientes
+      if (pendientes > 0) {
+        const alert = document.getElementById("pendientes-alert");
+        alert.style.display = "flex";
+        document.getElementById("alert-title").textContent =
+          `${pendientes} participante${pendientes !== 1 ? "s" : ""} con pago pendiente`;
+        document.getElementById("alert-desc").textContent =
+          `${pendientes === 1 ? "Este participante" : "Estos participantes"} aún no ha${pendientes !== 1 ? "n" : ""} pagado su cuota. Su pronóstico no será válido hasta confirmar el pago.`;
+      }
 
-  const resumenInner = document.getElementById('resumen-inner');
-  resumen.forEach(r => {
-    resumenInner.innerHTML += `
+      // Resumen cards
+      const resumen = [
+        {
+          icon: "👥",
+          value: total,
+          label: "Total participantes",
+          color: "#8EC1DA",
+        },
+        { icon: "✅", value: pagados, label: "Han pagado", color: "#2ECC71" },
+        {
+          icon: "⏳",
+          value: pendientes,
+          label: "Pendientes",
+          color: "#E74C3C",
+        },
+        {
+          icon: "💵",
+          value: "$" + boteTotal.toLocaleString("es-CO"),
+          label: "Bote acumulado",
+          color: "#FFD700",
+        },
+      ];
+
+      const resumenInner = document.getElementById("resumen-inner");
+      resumen.forEach((r) => {
+        resumenInner.innerHTML += `
       <div class="resumen-card" style="--card-color: ${r.color}">
         <div class="card-icon">${r.icon}</div>
         <div class="card-value">${r.value}</div>
         <div class="card-label">${r.label}</div>
       </div>`;
-  });
+      });
 
-  // Barra de progreso
-  resumenInner.insertAdjacentHTML('afterend', `
+      // Barra de progreso
+      resumenInner.insertAdjacentHTML(
+        "afterend",
+        `
     <div class="progress-container" style="grid-column: 1 / -1; max-width: 1200px; margin: 0 auto; width: 100%;">
       <div class="progress-header">
         <span>Progreso de pagos</span>
@@ -142,52 +196,55 @@
         <div class="progress-fill" style="width: ${pct}%"></div>
       </div>
     </div>
-  `);
+  `,
+      );
 
-  // ===== RENDER PARTICIPANTES =====
-  let estadoFiltro = 'todos';
+      // ===== RENDER PARTICIPANTES =====
+      let estadoFiltro = "todos";
 
-  function renderPagos(filtro) {
-    const lista = document.getElementById('pagos-list');
-    lista.innerHTML = '';
-    let items = [...PARTICIPANTES];
+      function renderPagos(filtro) {
+        const lista = document.getElementById("pagos-list");
+        lista.innerHTML = "";
+        let items = [...PARTICIPANTES];
 
-    if (filtro === 'pagados') items = items.filter(p => p.pagado);
-    if (filtro === 'pendientes') items = items.filter(p => !p.pagado);
+        if (filtro === "pagados") items = items.filter((p) => p.pagado);
+        if (filtro === "pendientes") items = items.filter((p) => !p.pagado);
 
-    // Ordenar: pagados primero, luego pendientes
-    items.sort((a, b) => b.pagado - a.pagado);
+        // Ordenar: pagados primero, luego pendientes
+        items.sort((a, b) => b.pagado - a.pagado);
 
-    items.forEach((p, i) => {
-      lista.innerHTML += `
-        <div class="pago-card ${p.pagado ? 'pagado' : 'pendiente'}" style="animation-delay: ${i * 0.05}s">
+        items.forEach((p, i) => {
+          lista.innerHTML += `
+        <div class="pago-card ${p.pagado ? "pagado" : "pendiente"}" style="animation-delay: ${i * 0.05}s">
           <div class="pago-avatar">${p.emoji}</div>
           <div class="pago-info">
             <div class="nombre">${p.nombre}</div>
-            <div class="orden">Participante #${(PARTICIPANTES.indexOf(p) + 1).toString().padStart(2, '0')}</div>
+            <div class="orden">Participante #${(PARTICIPANTES.indexOf(p) + 1).toString().padStart(2, "0")}</div>
           </div>
           <div class="pago-status">
-            <span class="status-badge ${p.pagado ? 'pagado' : 'pendiente'}">
-              ${p.pagado ? '✅ Pagado' : '⏳ Pendiente'}
+            <span class="status-badge ${p.pagado ? "pagado" : "pendiente"}">
+              ${p.pagado ? "✅ Pagado" : "⏳ Pendiente"}
             </span>
-            <span class="pago-cuota">${p.pagado ? INFO_POLLA.cuota : 'Sin confirmar'}</span>
+            <span class="pago-cuota">${p.pagado ? INFO_POLLA.cuota : "Sin confirmar"}</span>
           </div>
         </div>`;
-    });
+        });
 
-    if (items.length === 0) {
-      lista.innerHTML = `<div style="grid-column:1/-1; text-align:center; color: var(--text-muted); padding: 60px;">No hay participantes en esta categoría.</div>`;
-    }
-  }
+        if (items.length === 0) {
+          lista.innerHTML = `<div style="grid-column:1/-1; text-align:center; color: var(--text-muted); padding: 60px;">No hay participantes en esta categoría.</div>`;
+        }
+      }
 
-  function filtrar(tipo) {
-    estadoFiltro = tipo;
-    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('filtro-' + tipo).classList.add('active');
-    renderPagos(tipo);
-  }
+      function filtrar(tipo) {
+        estadoFiltro = tipo;
+        document
+          .querySelectorAll(".filtro-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("filtro-" + tipo).classList.add("active");
+        renderPagos(tipo);
+      }
 
-  renderPagos('todos');
-</script>
-</body>
+      renderPagos("todos");
+    </script>
+  </body>
 </html>
