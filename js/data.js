@@ -153,7 +153,7 @@ const PARTICIPANTES = [
   {
     nombre: "Carlos Nelson Díaz",
     emoji: "👨",
-    pagado: false,
+    pagado: true,
     top1: "España",
     top2: "Argentina",
     top3: "Francia",
